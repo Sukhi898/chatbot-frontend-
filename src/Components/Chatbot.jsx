@@ -17,8 +17,7 @@ const Chatbot = () => {
     const fetchFormData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/forms/unique/${id}`
-        );
+       `https://formbot-api-nwz1.onrender.com/forms/unique/${id}`        );
         const { formData } = response.data;
         console.log("API Response:", formData);
 
