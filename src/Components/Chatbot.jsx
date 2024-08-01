@@ -16,7 +16,7 @@ const Chatbot = () => {
   useEffect(() => {
     const fetchFormData = async () => {
       try {
-        const response = await axios.getconst response = await axios.get(
+        const response = await axios.get(
           `https://formbot-api-nwz1.onrender.com/forms/unique/${id}`
         );
         const { formData } = response.data;
