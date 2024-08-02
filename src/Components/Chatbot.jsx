@@ -17,7 +17,7 @@ const Chatbot = () => {
     const fetchFormData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4000/forms/unique/${id}`
+          `https://formbot-api-nwz1.onrender.com/forms/unique/${id}`
         );
         const { formData } = response.data;
         console.log("API Response:", formData);
@@ -188,26 +188,16 @@ const Chatbot = () => {
           </div>
           <div id="pointer"></div>
         </div>
-        {hiClicked &&
-          inputFields[currentStep] &&
-          inputFields[currentStep].type === "bubble" && (
-            <div className={`message bot new-bubble`}>
-              <img src="/public/BotLogo.png" alt="BotIcon" />
-              <div className="text bot">
-                {inputFields[currentStep].inputValue.replace(/[0-9]+$/, "")} {}
-              </div>
-            </div>
-          )}
-        {hiClicked &&
-          inputFields[currentStep] &&
-          inputFields[currentStep].type === "input" && (
-            <div className="input-container">
-              {renderInputField(currentStep)}
-              <button onClick={handleSendMessage} className="send-button">
-                <IoSendSharp style={{ color: "white" }} />
-              </button>
-            </div>
-          )}
+        {hiClicked && (
+          <div className="input-container">
+            {currentStep < inputFields.length && renderInputField(currentStep)}
+            <IoSendSharp
+              className="send-button"
+              onClick={handleSendMessage}
+              style={{ color: buttonColor }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
