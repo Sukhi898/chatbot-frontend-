@@ -52,7 +52,12 @@ const Chatbot = () => {
       }
     };
 
-    fetchFormData();
+   if (id) {
+      // Added check to ensure id is defined
+      fetchFormData();
+    } else {
+      console.log("No ID provided in the URL parameters"); // Added error message for missing id
+    }
   }, [id]);
 
   useEffect(() => {
