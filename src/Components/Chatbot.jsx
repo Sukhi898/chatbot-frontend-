@@ -17,7 +17,7 @@ const Chatbot = () => {
     const fetchFormData = async () => {
       try {
         const response = await axios.get(
-          `http://ec2-13-60-104-236.eu-north-1.compute.amazonaws.com/forms/unique/${id}`
+          `https://ec2-13-60-104-236.eu-north-1.compute.amazonaws.com/forms/unique/${id}`
         );
         const { formData } = response.data;
         console.log("API Response:", formData);
